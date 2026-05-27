@@ -79,7 +79,7 @@ jobs:
                   class: "DepictionStackView",
                   views: [
                     {
-                      class: "DepictionMarkdownTextView",
+                      class: "DepictionMarkdownView",
                       markdown: $readme,
                       useSpacing: true
                     }
@@ -90,7 +90,7 @@ jobs:
                   class: "DepictionStackView",
                   views: [
                     {
-                      class: "DepictionMarkdownTextView",
+                      class: "DepictionMarkdownView",
                       markdown: $changelog,
                       useSpacing: true
                     }
