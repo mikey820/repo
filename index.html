@@ -64,7 +64,6 @@
       padding: 16px;
       margin-bottom: 10px;
     }
-    .pkg-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
     .pkg-name { font-weight: 700; font-size: 1rem; }
     .pkg-version { font-size: 0.8rem; color: #666; margin-top: 2px; margin-bottom: 6px; }
     .pkg-desc { font-size: 0.875rem; color: #aaa; }
@@ -76,28 +75,6 @@
       background: #222;
       color: #888;
       border: 1px solid #333;
-    }
-    .downloads {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 0.78rem;
-      color: #555;
-      white-space: nowrap;
-      margin-left: auto;
-    }
-    .downloads svg { flex-shrink: 0; }
-    .dl-count {
-      font-variant-numeric: tabular-nums;
-      color: #666;
-      font-weight: 600;
-    }
-    .dl-breakdown {
-      font-size: 0.72rem;
-      color: #444;
-      margin-top: 4px;
-      display: flex;
-      gap: 10px;
     }
     footer { margin-top: 32px; font-size: 0.8rem; color: #444; }
   </style>
@@ -118,78 +95,19 @@
     <h2>Packages</h2>
 
     <div class="package">
-      <div class="pkg-header">
-        <div>
-          <div class="pkg-name">PleaseDontStopTheMusic</div>
-          <div class="pkg-version">v2.0.0 &mdash; com.mikey820.pleasedontstopthemusic</div>
-        </div>
-        <div class="downloads" id="dl-toggle" title="Click to reveal" style="cursor:pointer;">
-          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 1v9M4.5 7l3.5 3 3.5-3M2 12h12" stroke="#555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span class="dl-count" id="dl-total" style="filter:blur(5px);user-select:none;">&mdash;</span>
-        </div>
-      </div>
+      <div class="pkg-name">PleaseDontStopTheMusic</div>
+      <div class="pkg-version">v2.0.0 &mdash; com.mikey820.pleasedontstopthemusic</div>
       <div class="pkg-desc">Prevents apps (e.g. Roblox) from pausing your background music</div>
       <div class="pkg-tags">
         <span class="tag">Tweak</span>
         <span class="tag">Rootless</span>
         <span class="tag">Rootful</span>
         <span class="tag">iOS 14+</span>
-        <div class="dl-breakdown" id="dl-breakdown"></div>
       </div>
     </div>
   </div>
 
   <footer>Powered by GitHub Pages &bull; <a href="https://github.com/mikey820" style="color:#555;">github.com/mikey820</a></footer>
 
-  <script>
-    const dlTotal = document.getElementById('dl-total');
-    const dlBreakdown = document.getElementById('dl-breakdown');
-    const dlToggle = document.getElementById('dl-toggle');
-
-    let revealed = localStorage.getItem('dl-revealed') === '1';
-    function applyReveal() {
-      dlTotal.style.filter = revealed ? '' : 'blur(5px)';
-      dlTotal.style.userSelect = revealed ? '' : 'none';
-      dlBreakdown.style.filter = revealed ? '' : 'blur(5px)';
-      dlBreakdown.style.userSelect = revealed ? '' : 'none';
-      dlToggle.title = revealed ? '' : 'Click to reveal';
-    }
-    applyReveal();
-
-    dlToggle.addEventListener('click', () => {
-      revealed = !revealed;
-      localStorage.setItem('dl-revealed', revealed ? '1' : '0');
-      applyReveal();
-    });
-
-    fetch('https://api.github.com/repos/mikey820/PleaseDontStopTheMusic/releases')
-      .then(r => r.json())
-      .then(releases => {
-        let total = 0;
-        const byArch = {};
-
-        releases.forEach(release => {
-          release.assets.forEach(asset => {
-            if (!asset.name.endsWith('.deb')) return;
-            total += asset.download_count;
-            const arch = asset.name.includes('arm64') ? 'arm64 (rootless)' : 'arm (rootful)';
-            byArch[arch] = (byArch[arch] || 0) + asset.download_count;
-          });
-        });
-
-        dlTotal.textContent = total.toLocaleString() + ' download' + (total !== 1 ? 's' : '');
-
-        Object.entries(byArch).forEach(([arch, count]) => {
-          const span = document.createElement('span');
-          span.textContent = count.toLocaleString() + ' ' + arch;
-          dlBreakdown.appendChild(span);
-        });
-      })
-      .catch(() => {
-        dlTotal.textContent = '';
-      });
-  </script>
 </body>
 </html>
