@@ -14,6 +14,8 @@ Description: Prevent apps (e.g. Roblox) from pausing your background music
 Author: mikey820
 Icon: icon.png
 Name: PleaseDontStopTheMusic
+Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstopthemusic.html
+SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstopthemusic.json
 
 Package: com.mikey820.pleasedontstopthemusic
 Version: 2.1.0
@@ -31,4 +33,6 @@ Description: Prevent apps (e.g. Roblox) from pausing your background music
 Author: mikey820
 Icon: icon.png
 Name: PleaseDontStopTheMusic
+Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstopthemusic.html
+SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstopthemusic.json
 
