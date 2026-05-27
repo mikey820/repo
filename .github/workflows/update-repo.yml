@@ -38,6 +38,31 @@ jobs:
       - name: Generate Packages index
         run: |
           dpkg-scanpackages --multiversion debs/ > Packages
+
+          # Inject depiction URLs (avoids needing to rebuild .deb files)
+          python3 - <<'EOF'
+import re
+
+DEPICTION = "https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstopthemusic.html"
+SILEO     = "https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstopthemusic.json"
+
+with open("Packages", "r") as f:
+    content = f.read()
+
+def inject(block):
+    if "Package: com.mikey820.pleasedontstopthemusic" not in block:
+        return block
+    if "Depiction:" not in block:
+        block = block.rstrip("\n") + f"\nDepiction: {DEPICTION}\nSileoDepiction: {SILEO}\n"
+    return block
+
+blocks = re.split(r'\n\n+', content.strip())
+patched = "\n\n".join(inject(b) for b in blocks) + "\n\n"
+
+with open("Packages", "w") as f:
+    f.write(patched)
+EOF
+
           gzip -c9 Packages > Packages.gz
           bzip2 -c9 Packages > Packages.bz2
           xz -c9 Packages > Packages.xz
