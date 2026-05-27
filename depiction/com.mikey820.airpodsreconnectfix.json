@@ -1,0 +1,41 @@
+{
+  "minVersion": "0.1",
+  "class": "DepictionTabView",
+  "tintColor": "#5B5DE7",
+  "tabs": [
+    {
+      "tabname": "Details",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "No description available.",
+          "useSpacing": true
+        }
+      ]
+    },
+    {
+      "tabname": "Changelog",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "No releases.",
+          "useSpacing": true
+        }
+      ]
+    },
+    {
+      "tabname": "Support",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionTableButtonView",
+          "title": "GitHub Repository",
+          "action": "https://github.com/mikey820/AirPodsReconnectFix",
+          "openExternal": true
+        }
+      ]
+    }
+  ]
+}
