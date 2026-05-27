@@ -9,6 +9,11 @@ on:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  # Package map: "<package-id> <github-owner/repo>" per line.
+  # Add a new tweak by appending one line here.
+  PACKAGES: |
+    com.mikey820.pleasedontstopthemusic mikey820/PleaseDontStopTheMusic
+    com.mikey820.airpodsreconnectfix mikey820/AirPodsReconnectFix
 
 jobs:
   update:
@@ -27,11 +32,18 @@ jobs:
         run: |
           mkdir -p debs
           rm -f debs/*.deb
-          gh release download \
-            --repo mikey820/PleaseDontStopTheMusic \
-            --pattern "*.deb" \
-            --dir debs \
-            --clobber
+          echo "$PACKAGES" | while read -r pkgid repo; do
+            [ -z "$pkgid" ] && continue
+            echo "::group::Downloading $pkgid from $repo"
+            # A repo may have no release yet — don't fail the whole run.
+            gh release download \
+              --repo "$repo" \
+              --pattern "*.deb" \
+              --dir debs \
+              --clobber || echo "::warning::no release assets for $repo yet"
+            echo "::endgroup::"
+          done
+          ls -la debs
         env:
           GH_TOKEN: ${{ github.token }}
 
@@ -39,77 +51,80 @@ jobs:
         run: |
           dpkg-scanpackages --multiversion debs/ > Packages
 
-          DEPICTION="https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstopthemusic.html"
-          SILEO="https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstopthemusic.json"
-
-          awk -v dep="$DEPICTION" -v sileo="$SILEO" '
-            /^Package: com\.mikey820\.pleasedontstopthemusic$/ { in_pkg=1 }
-            in_pkg && /^$/ {
-              print "Depiction: " dep
-              print "SileoDepiction: " sileo
-              in_pkg=0
-            }
-            { print }
-          ' Packages > Packages.tmp && mv Packages.tmp Packages
+          # Inject Depiction/SileoDepiction for each known package id. We append
+          # the two lines at the blank line that terminates each stanza whose
+          # Package: matches one of our ids.
+          echo "$PACKAGES" | while read -r pkgid repo; do
+            [ -z "$pkgid" ] && continue
+            DEPICTION="https://mikey820.github.io/repo/depiction/$pkgid.html"
+            SILEO="https://mikey820.github.io/repo/depiction/$pkgid.json"
+            awk -v id="$pkgid" -v dep="$DEPICTION" -v sileo="$SILEO" '
+              $0 == "Package: " id { in_pkg=1 }
+              in_pkg && /^$/ {
+                print "Depiction: " dep
+                print "SileoDepiction: " sileo
+                in_pkg=0
+              }
+              { print }
+            ' Packages > Packages.tmp && mv Packages.tmp Packages
+          done
 
           gzip -c9 Packages > Packages.gz
           bzip2 -c9 Packages > Packages.bz2
           xz -c9 Packages > Packages.xz
 
-      - name: Generate Sileo depiction
+      - name: Generate Sileo depictions
         run: |
           mkdir -p depiction
+          echo "$PACKAGES" | while read -r pkgid repo; do
+            [ -z "$pkgid" ] && continue
+            echo "::group::Depiction for $pkgid ($repo)"
 
-          README=$(gh api repos/mikey820/PleaseDontStopTheMusic/contents/README.md \
-            --jq '.content' | base64 -d)
+            README=$(gh api "repos/$repo/contents/README.md" --jq '.content' | base64 -d) || README="No description available."
 
-          CHANGELOG=$(gh api repos/mikey820/PleaseDontStopTheMusic/releases \
-            --jq '[.[] | "### " + .tag_name + "\n\n" + (.body // "No notes.")] | join("\n\n---\n\n")')
+            CHANGELOG=$(gh api "repos/$repo/releases" \
+              --jq '[.[] | "### " + .tag_name + "\n\n" + (.body // "No notes.")] | join("\n\n---\n\n")') || CHANGELOG="No releases."
+            [ -z "$CHANGELOG" ] && CHANGELOG="No releases."
 
-          jq -n \
-            --arg readme "$README" \
-            --arg changelog "$CHANGELOG" \
-            '{
-              minVersion: "0.1",
-              class: "DepictionTabView",
-              tintColor: "#5B5DE7",
-              tabs: [
-                {
-                  tabname: "Details",
-                  class: "DepictionStackView",
-                  views: [
-                    {
-                      class: "DepictionMarkdownView",
-                      markdown: $readme,
-                      useSpacing: true
-                    }
-                  ]
-                },
-                {
-                  tabname: "Changelog",
-                  class: "DepictionStackView",
-                  views: [
-                    {
-                      class: "DepictionMarkdownView",
-                      markdown: $changelog,
-                      useSpacing: true
-                    }
-                  ]
-                },
-                {
-                  tabname: "Support",
-                  class: "DepictionStackView",
-                  views: [
-                    {
-                      class: "DepictionTableButtonView",
-                      title: "GitHub Repository",
-                      action: "https://github.com/mikey820/PleaseDontStopTheMusic",
-                      openExternal: true
-                    }
-                  ]
-                }
-              ]
-            }' > depiction/com.mikey820.pleasedontstopthemusic.json
+            jq -n \
+              --arg readme "$README" \
+              --arg changelog "$CHANGELOG" \
+              --arg repourl "https://github.com/$repo" \
+              '{
+                minVersion: "0.1",
+                class: "DepictionTabView",
+                tintColor: "#5B5DE7",
+                tabs: [
+                  {
+                    tabname: "Details",
+                    class: "DepictionStackView",
+                    views: [
+                      { class: "DepictionMarkdownView", markdown: $readme, useSpacing: true }
+                    ]
+                  },
+                  {
+                    tabname: "Changelog",
+                    class: "DepictionStackView",
+                    views: [
+                      { class: "DepictionMarkdownView", markdown: $changelog, useSpacing: true }
+                    ]
+                  },
+                  {
+                    tabname: "Support",
+                    class: "DepictionStackView",
+                    views: [
+                      {
+                        class: "DepictionTableButtonView",
+                        title: "GitHub Repository",
+                        action: $repourl,
+                        openExternal: true
+                      }
+                    ]
+                  }
+                ]
+              }' > "depiction/$pkgid.json"
+            echo "::endgroup::"
+          done
         env:
           GH_TOKEN: ${{ github.token }}
 
