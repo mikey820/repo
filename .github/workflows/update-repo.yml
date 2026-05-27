@@ -39,29 +39,18 @@ jobs:
         run: |
           dpkg-scanpackages --multiversion debs/ > Packages
 
-          # Inject depiction URLs (avoids needing to rebuild .deb files)
-          python3 - <<'EOF'
-import re
+          DEPICTION="https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstopthemusic.html"
+          SILEO="https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstopthemusic.json"
 
-DEPICTION = "https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstopthemusic.html"
-SILEO     = "https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstopthemusic.json"
-
-with open("Packages", "r") as f:
-    content = f.read()
-
-def inject(block):
-    if "Package: com.mikey820.pleasedontstopthemusic" not in block:
-        return block
-    if "Depiction:" not in block:
-        block = block.rstrip("\n") + f"\nDepiction: {DEPICTION}\nSileoDepiction: {SILEO}\n"
-    return block
-
-blocks = re.split(r'\n\n+', content.strip())
-patched = "\n\n".join(inject(b) for b in blocks) + "\n\n"
-
-with open("Packages", "w") as f:
-    f.write(patched)
-EOF
+          awk -v dep="$DEPICTION" -v sileo="$SILEO" '
+            /^Package: com\.mikey820\.pleasedontstopthemusic$/ { in_pkg=1 }
+            in_pkg && /^$/ {
+              print "Depiction: " dep
+              print "SileoDepiction: " sileo
+              in_pkg=0
+            }
+            { print }
+          ' Packages > Packages.tmp && mv Packages.tmp Packages
 
           gzip -c9 Packages > Packages.gz
           bzip2 -c9 Packages > Packages.bz2
