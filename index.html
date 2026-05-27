@@ -64,10 +64,11 @@
       padding: 16px;
       margin-bottom: 10px;
     }
+    .pkg-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
     .pkg-name { font-weight: 700; font-size: 1rem; }
     .pkg-version { font-size: 0.8rem; color: #666; margin-top: 2px; margin-bottom: 6px; }
     .pkg-desc { font-size: 0.875rem; color: #aaa; }
-    .pkg-tags { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+    .pkg-tags { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; align-items: center; }
     .tag {
       font-size: 0.75rem;
       padding: 2px 8px;
@@ -75,6 +76,28 @@
       background: #222;
       color: #888;
       border: 1px solid #333;
+    }
+    .downloads {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.78rem;
+      color: #555;
+      white-space: nowrap;
+      margin-left: auto;
+    }
+    .downloads svg { flex-shrink: 0; }
+    .dl-count {
+      font-variant-numeric: tabular-nums;
+      color: #666;
+      font-weight: 600;
+    }
+    .dl-breakdown {
+      font-size: 0.72rem;
+      color: #444;
+      margin-top: 4px;
+      display: flex;
+      gap: 10px;
     }
     footer { margin-top: 32px; font-size: 0.8rem; color: #444; }
   </style>
@@ -95,18 +118,60 @@
     <h2>Packages</h2>
 
     <div class="package">
-      <div class="pkg-name">PleaseDontStopTheMusic</div>
-      <div class="pkg-version">v2.0.0 &mdash; com.mikey820.pleasedontstopthemusic</div>
+      <div class="pkg-header">
+        <div>
+          <div class="pkg-name">PleaseDontStopTheMusic</div>
+          <div class="pkg-version">v2.0.0 &mdash; com.mikey820.pleasedontstopthemusic</div>
+        </div>
+        <div class="downloads">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 1v9M4.5 7l3.5 3 3.5-3M2 12h12" stroke="#555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="dl-count" id="dl-total">&mdash;</span>
+        </div>
+      </div>
       <div class="pkg-desc">Prevents apps (e.g. Roblox) from pausing your background music</div>
       <div class="pkg-tags">
         <span class="tag">Tweak</span>
         <span class="tag">Rootless</span>
         <span class="tag">Rootful</span>
         <span class="tag">iOS 14+</span>
+        <div class="dl-breakdown" id="dl-breakdown"></div>
       </div>
     </div>
   </div>
 
   <footer>Powered by GitHub Pages &bull; <a href="https://github.com/mikey820" style="color:#555;">github.com/mikey820</a></footer>
+
+  <script>
+    fetch('https://api.github.com/repos/mikey820/PleaseDontStopTheMusic/releases')
+      .then(r => r.json())
+      .then(releases => {
+        let total = 0;
+        const byArch = {};
+
+        releases.forEach(release => {
+          release.assets.forEach(asset => {
+            if (!asset.name.endsWith('.deb')) return;
+            total += asset.download_count;
+            const arch = asset.name.includes('arm64') ? 'arm64 (rootless)' : 'arm (rootful)';
+            byArch[arch] = (byArch[arch] || 0) + asset.download_count;
+          });
+        });
+
+        document.getElementById('dl-total').textContent =
+          total.toLocaleString() + ' download' + (total !== 1 ? 's' : '');
+
+        const breakdown = document.getElementById('dl-breakdown');
+        Object.entries(byArch).forEach(([arch, count]) => {
+          const span = document.createElement('span');
+          span.textContent = count.toLocaleString() + ' ' + arch;
+          breakdown.appendChild(span);
+        });
+      })
+      .catch(() => {
+        document.getElementById('dl-total').textContent = '';
+      });
+  </script>
 </body>
 </html>
