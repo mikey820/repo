@@ -1,14 +1,14 @@
 Package: com.mikey820.airpodsreconnectfix
-Version: 2.2.0
+Version: 2.3.0
 Architecture: iphoneos-arm
 Maintainer: mikey820 <mikey820@users.noreply.github.com>
 Installed-Size: 60
 Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 6.0)
-Filename: debs/com.mikey820.airpodsreconnectfix_2.2.0_iphoneos-arm.deb
-Size: 8424
-MD5sum: 8ece5a91876b1353a96e03fab217ac0e
-SHA1: 3f218c6a16a9a511dcf0fc130e02c0e9b0ba14ab
-SHA256: 8d42777f135eca905749c932660c400c0a1b57c38275e6447c421c5cbc78c8df
+Filename: debs/com.mikey820.airpodsreconnectfix_2.3.0_iphoneos-arm.deb
+Size: 8886
+MD5sum: c691e5ab2b2d95c57c24b36e295355cb
+SHA1: 4b08c6207d0b49a100a756c0d310bc4e66e895b2
+SHA256: a43c891b44021cabce55f3ed322dcd6a9c8a71fd15666453b782f3304b46c058
 Section: Tweaks
 Description: Diagnose & mitigate the AirPods Bluetooth disconnect/reconnect loop on iOS 6
 Author: mikey820
