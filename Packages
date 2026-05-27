@@ -1,16 +1,16 @@
 Package: com.mikey820.pleasedontstopthemusic
-Version: 2.1.0
+Version: 2.2.1
 Architecture: iphoneos-arm
 Maintainer: mikey820 <mikey820@users.noreply.github.com>
-Installed-Size: 168
+Installed-Size: 208
 Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 14.0)
-Filename: debs/com.mikey820.pleasedontstopthemusic_2.1.0_iphoneos-arm.deb
-Size: 24066
-MD5sum: 4a52ad4e56ca55711a1d0a900818bd95
-SHA1: 976440b7cd2af1178593063d42022f9e13c50c51
-SHA256: a0ccf2bee0738cbc9784b5b07a457917caa2dda1965337f8fc1b9e4609c5e51b
+Filename: debs/com.mikey820.pleasedontstopthemusic_2.2.1_iphoneos-arm.deb
+Size: 40028
+MD5sum: c3be24fdb59b5674f831edbc3499e6c0
+SHA1: 67a2d0ba3409478d7d24b7471f5f21a9e9c96e14
+SHA256: 7b573a9bbef9f12e0a04857fd2753734d085d1356dd41001b1eba109c5cb95f4
 Section: Tweaks
-Description: Prevent apps (e.g. Roblox) from pausing your background music
+Description: Keep background music playing through other apps, plus a per-app volume mixer on the volume buttons
 Author: mikey820
 Icon: icon.png
 Name: PleaseDontStopTheMusic
@@ -18,18 +18,18 @@ Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstop
 SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstopthemusic.json
 
 Package: com.mikey820.pleasedontstopthemusic
-Version: 2.1.0
+Version: 2.2.1
 Architecture: iphoneos-arm64
 Maintainer: mikey820 <mikey820@users.noreply.github.com>
-Installed-Size: 168
+Installed-Size: 208
 Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 14.0)
-Filename: debs/com.mikey820.pleasedontstopthemusic_2.1.0_iphoneos-arm64.deb
-Size: 24148
-MD5sum: ae933474e61bab12566223e8150e1c2c
-SHA1: 8c5d6f9074b2f0652ff1710f819b8716f02b6e99
-SHA256: c521e628bc271f48aba495d0cc8456665ae9f2672fdc70c44cab1ab4f5bb359b
+Filename: debs/com.mikey820.pleasedontstopthemusic_2.2.1_iphoneos-arm64.deb
+Size: 40108
+MD5sum: 23992e1d66108f18a945fc1bd8bc4dee
+SHA1: 133b9f075f596c1cddf08ff1da4db157566ac4c1
+SHA256: ce41fcebbfc585eef4f44cd86861d05ec4ab78d31b3b8e8e41c056e7b7024992
 Section: Tweaks
-Description: Prevent apps (e.g. Roblox) from pausing your background music
+Description: Keep background music playing through other apps, plus a per-app volume mixer on the volume buttons
 Author: mikey820
 Icon: icon.png
 Name: PleaseDontStopTheMusic
