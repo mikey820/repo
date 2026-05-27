@@ -18,16 +18,16 @@ Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.airpodsreconne
 SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.airpodsreconnectfix.json
 
 Package: com.mikey820.pleasedontstopthemusic
-Version: 2.1.1
-Architecture: iphoneos-arm64
+Version: 2.1.2
+Architecture: iphoneos-arm
 Maintainer: mikey820 <mikey820@users.noreply.github.com>
 Installed-Size: 168
 Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 14.0)
-Filename: debs/com.mikey820.pleasedontstopthemusic_2.1.1_iphoneos-arm64.deb
-Size: 24284
-MD5sum: 9ba2ce7932919062f745464e09a51065
-SHA1: 2f4b2a0e1955b52232f69c42983df38c5919cef4
-SHA256: 3660fb1462969ae2472c5fc233b0411047d529c6f61073a71a23ff79a61128fd
+Filename: debs/com.mikey820.pleasedontstopthemusic_2.1.2_iphoneos-arm.deb
+Size: 23910
+MD5sum: 98db7de555599fa3facd258f637c7e3c
+SHA1: d21742f48e840f95bcb1f26318f16d959086f607
+SHA256: 827c3de0b8919d419c60793f3ecef24cbb26fd54d47eba826d7fdf35d4626114
 Section: Tweaks
 Description: Prevent apps (e.g. Roblox) from pausing your background music
 Author: mikey820
@@ -37,16 +37,16 @@ Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstop
 SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstopthemusic.json
 
 Package: com.mikey820.pleasedontstopthemusic
-Version: 2.1.1
-Architecture: iphoneos-arm
+Version: 2.1.2
+Architecture: iphoneos-arm64
 Maintainer: mikey820 <mikey820@users.noreply.github.com>
 Installed-Size: 168
 Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 14.0)
-Filename: debs/com.mikey820.pleasedontstopthemusic_2.1.1_iphoneos-arm.deb
-Size: 24200
-MD5sum: 08dcba15d4fec558dbfffd9e3e675ccd
-SHA1: 93b6770ab72ce566dce02a6e4fb21e152eeb574a
-SHA256: 0ed74a08300a53118937b72a4571a7ac7e60494bce2472b7ed6c6e2a32316b15
+Filename: debs/com.mikey820.pleasedontstopthemusic_2.1.2_iphoneos-arm64.deb
+Size: 24002
+MD5sum: 6e21ad67f47192346aac91464779f2d2
+SHA1: fed5ad6b92bd6f2eb25ec7de64a08e9eec821cfd
+SHA256: 4f63cc0c6ae776c271d62933fbb123932a7c9221f9a3097afdaf90f6de5441c3
 Section: Tweaks
 Description: Prevent apps (e.g. Roblox) from pausing your background music
 Author: mikey820
