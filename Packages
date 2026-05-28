@@ -1,16 +1,16 @@
 Package: com.mikey820.airpodsreconnectfix
-Version: 2.7.1
+Version: 2.7.2
 Architecture: iphoneos-arm
 Maintainer: mikey820 <mikey820@users.noreply.github.com>
 Installed-Size: 124
 Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 6.0)
-Filename: debs/com.mikey820.airpodsreconnectfix_2.7.1_iphoneos-arm.deb
-Size: 15194
-MD5sum: b96ef1401457b42ef039fcc6beefb0d4
-SHA1: 4abe4726c01a0818c1cc2e4fbc30a41a8cd372ae
-SHA256: d9cddc6858e657d07e9201669d21eda23b8d9cd57525715699689864a8eb2f01
+Filename: debs/com.mikey820.airpodsreconnectfix_2.7.2_iphoneos-arm.deb
+Size: 14514
+MD5sum: cfde43956a9075c925cacb7cc1cd6b55
+SHA1: 9fd0114aca8cd467b3443fedd79bfdd61f6cda9e
+SHA256: 0f7fda2d05bd77532981417291fab98646c710367bfe65059d79152f5546b520
 Section: Tweaks
-Description: Diagnostic: dumps iOS-6 MediaPlayer route classes (MPAVRoutingController is iOS 7+, need iOS-6 equivalent)
+Description: Fix AirPods audio cut-outs on iOS 6 by auto-bouncing the output route via MPAudioDeviceController (no Mac needed)
 Author: mikey820
 Icon: icon.png
 Name: AirPodsReconnectFix
