@@ -1,16 +1,16 @@
 Package: com.mikey820.airpodsreconnectfix
-Version: 2.7.5
+Version: 2.7.6
 Architecture: iphoneos-arm
 Maintainer: mikey820 <mikey820@users.noreply.github.com>
 Installed-Size: 140
 Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 6.0)
-Filename: debs/com.mikey820.airpodsreconnectfix_2.7.5_iphoneos-arm.deb
-Size: 16278
-MD5sum: 4c8acace61eba51b7fd901b66a376787
-SHA1: cfa599f2eb2d48e89c49628b6627a586713da715
-SHA256: 583af324f7ac21a9954dccb12d8c0b4b8ad3a4188139479e8d5a4d08592b44fe
+Filename: debs/com.mikey820.airpodsreconnectfix_2.7.6_iphoneos-arm.deb
+Size: 18966
+MD5sum: d47a9b15a0ef7b20a684c11bc87e5202
+SHA1: e21a848c5a9d160118417774581af913af7604ce
+SHA256: 3810415cc06f433c8b113dddc2ebe7eb6ea414de39c38dffa564b744fedfcded
 Section: Tweaks
-Description: Auto-reconnect AirPods on iOS 6 (post-AirPods-Pro-3 firmware) and auto-resume music after each reconnect — disconnect cycle made near-invisible
+Description: Burst-reconnect AirPods on iOS 6 (post-AirPods-Pro-3 firmware) + auto-resume — aiming to beat the audio-pause window so music never interrupts
 Author: mikey820
 Icon: icon.png
 Name: AirPodsReconnectFix
