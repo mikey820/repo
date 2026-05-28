@@ -1,22 +1,3 @@
-Package: com.mikey820.airpodsreconnectfix
-Version: 2.7.7
-Architecture: iphoneos-arm
-Maintainer: mikey820 <mikey820@users.noreply.github.com>
-Installed-Size: 140
-Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 6.0)
-Filename: debs/com.mikey820.airpodsreconnectfix_2.7.7_iphoneos-arm.deb
-Size: 21862
-MD5sum: c47855493dbbba20ff18ef43aeffb3c4
-SHA1: 3da25f4a343eb2fd8125b35300dfb26fd454ef1a
-SHA256: 0b2aaca816c095f62ae13bf24dae0574469ae9c99378fb0025fd64a8e2927e69
-Section: Tweaks
-Description: Burst-reconnect AirPods on iOS 6 (post-AirPods-Pro-3 firmware) + auto-resume — aiming to beat the audio-pause window so music never interrupts
-Author: mikey820
-Icon: icon.png
-Name: AirPodsReconnectFix
-Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.airpodsreconnectfix.html
-SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.airpodsreconnectfix.json
-
 Package: com.mikey820.pleasedontstopthemusic
 Version: 2.1.0
 Architecture: iphoneos-arm
