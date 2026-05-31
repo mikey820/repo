@@ -1,16 +1,16 @@
 Package: com.mikey820.airpodsreconnectfix
-Version: 2.8.2
+Version: 2.7.8
 Architecture: iphoneos-arm
 Maintainer: mikey820 <mikey820@users.noreply.github.com>
 Installed-Size: 140
 Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 6.0)
-Filename: debs/com.mikey820.airpodsreconnectfix_2.8.2_iphoneos-arm.deb
-Size: 25702
-MD5sum: 8b8c7cbe0009e4999bfecd312fd88d23
-SHA1: 7d8b22b265d83e29f9b42b8c340222a7d44f04b1
-SHA256: 30f07785548b83d6119dd16c492cdafb7031a429456cc5d8a16a6aa846f80697
+Filename: debs/com.mikey820.airpodsreconnectfix_2.7.8_iphoneos-arm.deb
+Size: 22812
+MD5sum: dc15a1ca47de3aa8e880a8419ba8fbe7
+SHA1: 4b814f074c8998cd770d87979d131c1a483443ee
+SHA256: c8d4cac848420dd2086af5ce47a7020fec90864bbad4e86bc834a449ac0b3e0b
 Section: Tweaks
-Description: iOS 6 AirPods fix: burst-reconnect + 18s pre-emptive service re-assert; v2.8.1 fixes pause/unpause route drift (healRouteIfNeeded restores wireless route after re-assert, reconnect, and unpause)
+Description: iOS 6 AirPods fix (post-AirPods-Pro-3 firmware): pre-emptive service re-assert every 18s to head off the ~45s firmware disconnect, plus burst-reconnect fallback
 Author: mikey820
 Icon: icon.png
 Name: AirPodsReconnectFix
