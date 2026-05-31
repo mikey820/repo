@@ -1,16 +1,16 @@
 Package: com.mikey820.airpodsreconnectfix
-Version: 2.7.8
+Version: 2.8.6
 Architecture: iphoneos-arm
 Maintainer: mikey820 <mikey820@users.noreply.github.com>
-Installed-Size: 140
+Installed-Size: 236
 Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 6.0)
-Filename: debs/com.mikey820.airpodsreconnectfix_2.7.8_iphoneos-arm.deb
-Size: 22812
-MD5sum: dc15a1ca47de3aa8e880a8419ba8fbe7
-SHA1: 4b814f074c8998cd770d87979d131c1a483443ee
-SHA256: c8d4cac848420dd2086af5ce47a7020fec90864bbad4e86bc834a449ac0b3e0b
+Filename: debs/com.mikey820.airpodsreconnectfix_2.8.6_iphoneos-arm.deb
+Size: 107398
+MD5sum: 043851001344710278b77c1111646d3e
+SHA1: 7b1ae300da8d2215564178a840dbead62cb9f776
+SHA256: f2317681140023ad8f3124bc9954f20de306b5f6f5dafc128b7dabc9dca9ca23
 Section: Tweaks
-Description: iOS 6 AirPods fix (post-AirPods-Pro-3 firmware): pre-emptive service re-assert every 18s to head off the ~45s firmware disconnect, plus burst-reconnect fallback
+Description: iOS 6 AirPods fix (post-AirPods-Pro-3 firmware): pre-emptive service re-assert every 18s to head off the ~45s firmware disconnect (plus burst-reconnect fallback), AND a gapless silent A2DP keep-warm stream so pausing/skipping tracks and system sounds keep routing to the AirPods (mechanism from asentientbot's ios-6-pods-hack, folded in)
 Author: mikey820
 Icon: icon.png
 Name: AirPodsReconnectFix
