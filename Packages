@@ -18,18 +18,18 @@ Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.airpodsreconne
 SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.airpodsreconnectfix.json
 
 Package: com.mikey820.groupchatnamefix
-Version: 6.1.0
+Version: 7.0.1
 Architecture: iphoneos-arm
 Maintainer: mikey820
-Installed-Size: 60
+Installed-Size: 76
 Depends: mobilesubstrate
-Filename: debs/com.mikey820.groupchatnamefix_6.1.0_iphoneos-arm.deb
-Size: 8884
-MD5sum: 7bd43fc4ab253b5959be74342c73ce17
-SHA1: 7a8bff2fd07a9c3ecf7273bbdb39f1aa4d56b112
-SHA256: 7432abfeaf7fc7e8bd880dba27f567d5c3feaba1e00a40d3e814aabe3251aec7
+Filename: debs/com.mikey820.groupchatnamefix_7.0.1_iphoneos-arm.deb
+Size: 15050
+MD5sum: 0c7baa3cb184d42ddfc322477f347f42
+SHA1: 7872ff4cfafae43cb63767bf9a14d18de96fed1c
+SHA256: 408f09a49b9df5c47374625ae1ebf806c657a38ed1ebd25c88d6ea5cc067804d
 Section: Tweaks
-Description: Fix iOS 6 group iMessages splitting into a new conversation after a newer-iOS device renames the group
+Description: Fix iOS 6 group iMessages splitting into a new conversation after a newer-iOS device renames the group, and show the modern group's name in the Messages UI
 Author: mikey820
 Name: GroupChatNameFix
 Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.groupchatnamefix.html
