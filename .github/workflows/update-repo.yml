@@ -14,6 +14,7 @@ env:
   PACKAGES: |
     com.mikey820.pleasedontstopthemusic mikey820/PleaseDontStopTheMusic
     com.mikey820.airpodsreconnectfix mikey820/AirPodsReconnectFix
+    com.mikey820.groupchatnamefix mikey820/GroupChatNameFix
 
 jobs:
   update:
