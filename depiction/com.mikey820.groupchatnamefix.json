@@ -1,0 +1,41 @@
+{
+  "minVersion": "0.1",
+  "class": "DepictionTabView",
+  "tintColor": "#5B5DE7",
+  "tabs": [
+    {
+      "tabname": "Details",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "# GroupChatNameFix\n\nA MobileSubstrate tweak for **iOS 6** (armv7/armv7s, jailbroken) that fixes group\niMessages from the iOS 6 device showing up as a **separate / duplicated conversation**\nfor everyone else once a modern‑iOS member gives the group a name.\n\n> TL;DR — after someone on modern iOS names (or renames) a group that includes an\n> iOS 6 device, every message the iOS 6 device sends lands in a brand‑new thread for\n> the other members. This tweak makes those messages thread into the real named group\n> again. It is **fully autonomous**, no companion app, no manual configuration.\n\n---\n\n## The bug\n\nModern iOS threads a **named** group chat by a stable group identifier — a `gid`\n(a UUID) carried inside the encrypted iMessage payload, with `gv` (group version) `= 8`.\n\niOS 6's 2012‑era \"Madrid\" iMessage payload predates that. Its outgoing group payload is\nonly:\n\n```\n{ p = ( participant URIs ); t = \"text\"; v = 1; }\n```\n\nNo `gid`. So once a group has a name, modern devices can't match iOS 6's gid‑less\nmessages to the named group and bucket them by participant set into a **separate\n(\"forked\") thread** instead. iOS 6 itself always looks normal, it only ever has the one\nchat; the split is only visible to the modern recipients.\n\n## The fix\n\niOS 6 actually already receives the `gid` — it's inside every **incoming** group message\n(decryption is end‑to‑end, so iOS 6 gets exactly what the modern sender encrypted; the\n`gid` is only discarded later, when iOS 6 builds its internal message object). So the\ntweak:\n\n1. **Harvests** the gid from incoming messages. It hooks the exported C function\n   `JWDecodeDictionary` (in `IMFoundation`), which decodes every inbound payload. When a\n   decoded payload carries `gid` + participants, the tweak stores a\n   `participants → gid` mapping (persisted to `/var/mobile/gcnf_learned.plist`).\n\n2. **Injects** the gid on send. It hooks\n   `-[MessageDeliveryController _sendMessage:messageString:messageDictionary:…]`\n   (in the `iMessage.imservice` plugin), looks up the learned gid for the outgoing\n   participant set, and adds `gid` + `gv = 8` to the payload dictionary **before** it is\n   serialized (`_JWEncodeDictionary`), gzipped and encrypted.\n\nNet effect: once **any** modern member posts in a group, the iOS 6 device learns that\ngroup's gid and every subsequent send threads correctly, and because a group's gid is\n**stable across renames**, learning it once fixes the group permanently.\n\nIt is purely additive: only outgoing **group** sends (2+ participants) are touched;\n1‑to‑1 messages and all incoming messages are untouched.\n\n## Install\n\n- **Sileo / Cydia / Zebra:** add the repo, search *GroupChatNameFix*, install.\n- **Manual:** download the `.deb` from\n  [Releases](https://github.com/mikey820/GroupChatNameFix/releases) and\n  `dpkg -i` it, then respring (or `killall imagent`).\n\nRequirements: jailbroken **iOS 6**, `mobilesubstrate`. The tweak injects into\n`imagent`.\n\n## Files\n\n| path | purpose |\n|------|---------|\n| `/Library/MobileSubstrate/DynamicLibraries/GroupChatNameFix.dylib` | the tweak |\n| `/var/mobile/gcnf_learned.plist` | auto‑learned `participants → gid` map (persisted) |\n| `/var/mobile/gcnf_gid.txt` | **optional** manual override (see below) |\n| `/var/mobile/GroupChatNameFix.log` | diagnostic log |\n\n### Manual override (optional)\n\nNormally nothing is needed. To force a specific gid for every group send (e.g. for\ntesting), create `/var/mobile/gcnf_gid.txt`:\n\n```\ngid=2DA6132C-4E52-402E-AC30-577D90B31727\ngv=8\nminpeople=2\n```\n\nIf present, this takes precedence over the learned map. Delete the file to return to\nfully automatic operation.\n\n## Caveats\n\n- **First‑message learning.** For each group, iOS 6 must *receive* one modern message\n  before it knows that group's gid. A send made before that (or in a brand‑new group\n  with no inbound yet) can still fork; it self‑heals on the next inbound. The learned map\n  survives reboots.\n- **Same participants, multiple named groups.** The map is keyed by participant set, so\n  if the exact same members share several named groups, sends route to the\n  most‑recently‑seen gid for that set. Fine for normal use (one group per set).\n\n## How it was found\n\nThe relevant code is **not** in `IMDaemonCore` (a thin shim), it lives in the\n`iMessage.imservice` plugin and `IMFoundation`, which on iOS 6 exist only inside the\n`dyld_shared_cache`. The send/receive paths and the `gid` injection seam were located by\npulling the cache off the device and analysing it with a small custom dyld‑cache reader +\nThumb‑2 disassembler. This cache stores embedded\nDATA/literal‑pool pointers with a constant slide of `0x30A8000` (subtract before mapping;\ncode/section/symbol addresses are **not** slid).\n\n## Build\n\nCI (`.github/workflows/build.yml`) builds with Theos + the iPhoneOS 14.5 SDK and the\nL1ghtmann Linux iOS toolchain on Ubuntu, then repacks the `.deb` with **gzip**\ncompression (iOS 6's `dpkg` cannot unpack the lzma/xz that newer `dpkg-deb` emits) and\npublishes it to Releases.\n\n## License / credits\n\nBy mikey820. iMessage protocol details cross‑checked against open reverse‑engineering of\nthe Madrid/`gid` group format.",
+          "useSpacing": true
+        }
+      ]
+    },
+    {
+      "tabname": "Changelog",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "### v50\n\n**Full Changelog**: https://github.com/mikey820/GroupChatNameFix/compare/v49...v50",
+          "useSpacing": true
+        }
+      ]
+    },
+    {
+      "tabname": "Support",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionTableButtonView",
+          "title": "GitHub Repository",
+          "action": "https://github.com/mikey820/GroupChatNameFix",
+          "openExternal": true
+        }
+      ]
+    }
+  ]
+}

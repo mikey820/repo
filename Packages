@@ -10,7 +10,7 @@ MD5sum: 651c30ec7f3e31ab9a11ba78bc97e0a6
 SHA1: 95bf9658c5a54698625509e226e7be715ecb010c
 SHA256: c5ce0d7173a1750c702d099022d9262ff9634a762e7b4a8daa965d808aba9367
 Section: Tweaks
-Description: iOS 6 AirPods fix (post-AirPods-Pro-3 firmware): pre-emptive service re-assert every 18s to head of f the ~45s firmware disconnect (plus burst-reconnect fallback), AND a gapless silent A2DP keep-warm stream so pausing/skipping tracks and system sounds keep routing to the AirPods (mechanism from asentientbot's ios-6-pods-hack, folded in)
+Description: iOS 6 AirPods fix (post-AirPods-Pro-3 firmware): pre-emptive service re-assert every 18s to head off the ~45s firmware disconnect (plus burst-reconnect fallback), AND a gapless silent A2DP keep-warm stream so pausing/skipping tracks and system sounds keep routing to the AirPods (mechanism from asentientbot's ios-6-pods-hack, folded in)
 Author: mikey820
 Icon: icon.png
 Name: AirPodsReconnectFix
@@ -20,8 +20,8 @@ SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.airpodsre
 Package: com.mikey820.groupchatnamefix
 Version: 6.1.0
 Architecture: iphoneos-arm
-Maintainer: mikey820 <mikey820@users.noreply.github.com>
-Installed-Size: 128
+Maintainer: mikey820
+Installed-Size: 60
 Depends: mobilesubstrate
 Filename: debs/com.mikey820.groupchatnamefix_6.1.0_iphoneos-arm.deb
 Size: 8884
@@ -31,8 +31,9 @@ SHA256: 7432abfeaf7fc7e8bd880dba27f567d5c3feaba1e00a40d3e814aabe3251aec7
 Section: Tweaks
 Description: Fix iOS 6 group iMessages splitting into a new conversation after a newer-iOS device renames the group
 Author: mikey820
-Icon: icon.png
 Name: GroupChatNameFix
+Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.groupchatnamefix.html
+SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.groupchatnamefix.json
 
 Package: com.mikey820.pleasedontstopthemusic
 Version: 2.3.1
@@ -90,3 +91,4 @@ Icon: icon.png
 Name: PleaseDontStopTheMusic
 Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstopthemusic.html
 SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstopthemusic.json
+
