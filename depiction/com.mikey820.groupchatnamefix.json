@@ -20,7 +20,7 @@
       "views": [
         {
           "class": "DepictionMarkdownView",
-          "markdown": "### v67\n\n**Full Changelog**: https://github.com/mikey820/GroupChatNameFix/compare/v60...v67\n\n---\n\n### v50\n\n**Full Changelog**: https://github.com/mikey820/GroupChatNameFix/compare/v49...v50",
+          "markdown": "### v67\n\ngc name now shows up on ios 6 device\n\n---\n\n### v50\n\n**Full Changelog**: https://github.com/mikey820/GroupChatNameFix/compare/v49...v50",
           "useSpacing": true
         }
       ]
