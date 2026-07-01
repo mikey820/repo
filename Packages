@@ -35,6 +35,24 @@ Name: GroupChatNameFix
 Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.groupchatnamefix.html
 SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.groupchatnamefix.json
 
+Package: com.mikey820.nostrongpassword
+Version: 1.0.0
+Architecture: iphoneos-arm64
+Maintainer: mikey820 <mikey820@users.noreply.github.com>
+Installed-Size: 168
+Depends: ellekit
+Filename: debs/com.mikey820.nostrongpassword_1.0.0_iphoneos-arm64.deb
+Size: 2920
+MD5sum: f55f3c79df2b950ac771ba0b9dcc3439
+SHA1: 679589437f343148c3081230dd095ba7c5a0f1b3
+SHA256: 47420bd8f692019f80b374e16d5edc692e9f191961c67428d24aa30ba46e4cb9
+Section: Tweaks
+Description: Disables Safari's automatic strong-password suggestion sheet while keeping AutoFill for saved logins intact.
+Author: mikey820
+Name: NoStrongPassword
+Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.nostrongpassword.html
+SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.nostrongpassword.json
+
 Package: com.mikey820.pleasedontstopthemusic
 Version: 2.3.1
 Architecture: iphoneos-arm64e
@@ -92,21 +110,3 @@ Name: PleaseDontStopTheMusic
 Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstopthemusic.html
 SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstopthemusic.json
 
-
-Package: com.mikey820.nostrongpassword
-Version: 1.0.0
-Architecture: iphoneos-arm64
-Maintainer: mikey820 <mikey820@users.noreply.github.com>
-Installed-Size: 168
-Depends: ellekit
-Filename: debs/com.mikey820.nostrongpassword_1.0.0_iphoneos-arm64.deb
-Size: 2920
-MD5sum: f55f3c79df2b950ac771ba0b9dcc3439
-SHA1: 679589437f343148c3081230dd095ba7c5a0f1b3
-SHA256: 47420bd8f692019f80b374e16d5edc692e9f191961c67428d24aa30ba46e4cb9
-Section: Tweaks
-Description: Disables Safari's automatic strong-password suggestion sheet while keeping AutoFill for saved logins intact.
-Author: mikey820
-Name: NoStrongPassword
-Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.nostrongpassword.html
-SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.nostrongpassword.json
