@@ -16,6 +16,8 @@ env:
     com.mikey820.airpodsreconnectfix mikey820/AirPodsReconnectFix
     com.mikey820.groupchatnamefix mikey820/GroupChatNameFix
     com.mikey820.nostrongpassword mikey820/NoStrongPassword
+    com.mikey820.dockmover mikey820/DockMover
+    com.mikey820.gameunmute mikey820/GameUnmute
 
 jobs:
   update:
