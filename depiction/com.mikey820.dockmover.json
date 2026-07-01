@@ -1,0 +1,41 @@
+{
+  "minVersion": "0.1",
+  "class": "DepictionTabView",
+  "tintColor": "#5B5DE7",
+  "tabs": [
+    {
+      "tabname": "Details",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "# DockMover\n\nMove the iPad dock anywhere on screen.\n\nA SpringBoard tweak for **rootful iOS 14** iPad (tested on iPad6,3 / iOS 14.8.1,\ncheckra1n/palera1n + libhooker). On iPad the visible dock is the floating-dock\nplatter (`SBFloatingDockPlatterView`); DockMover lets you drag it around and\nremembers where you put it.\n\n## Usage\n\nOn the dock:\n\n| Gesture | Action |\n| --- | --- |\n| **Two-finger drag** | Move the dock anywhere on screen (position is saved) |\n| **Two-finger triple-tap** | Reset the dock to its default position |\n\nSingle-finger touches are untouched, so launching apps and context menus work\nas normal.\n\n## How it works\n\nSpringBoard re-centers the dock platter on every layout pass and stomps any\n`transform` you set on it. So instead of fighting it, DockMover re-applies the\nsaved offset to the platter at the **end** of the container's `-layoutSubviews`,\nafter `%orig` has placed it at its base position. Because the offset is always\nmeasured from the freshly-computed base, it is stable and never compounds.\n\nThe offset is persisted in `com.mikey820.dockmover` (`offX` / `offY`).\n\n## Building\n\nBuilt on GitHub Actions (`macos-latest` + theos, iOS 14.5 SDK, rootful).\nPush to `master` or run the workflow manually; the `.deb` is uploaded as a\nbuild artifact.\n\n```\nmake package FINALPACKAGE=1\n```\n\nInstall over SSH:\n\n```\ndpkg -i com.mikey820.dockmover_1.0.0_iphoneos-arm.deb\nkillall -9 SpringBoard\n```",
+          "useSpacing": true
+        }
+      ]
+    },
+    {
+      "tabname": "Changelog",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "### v1.0.2\n\nMove the iPad dock anywhere on screen with a two-finger drag.",
+          "useSpacing": true
+        }
+      ]
+    },
+    {
+      "tabname": "Support",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionTableButtonView",
+          "title": "GitHub Repository",
+          "action": "https://github.com/mikey820/DockMover",
+          "openExternal": true
+        }
+      ]
+    }
+  ]
+}

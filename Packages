@@ -17,6 +17,42 @@ Name: AirPodsReconnectFix
 Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.airpodsreconnectfix.html
 SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.airpodsreconnectfix.json
 
+Package: com.mikey820.dockmover
+Version: 1.0.2
+Architecture: iphoneos-arm
+Maintainer: mikey820
+Installed-Size: 72
+Depends: mobilesubstrate
+Filename: debs/com.mikey820.dockmover_1.0.2_iphoneos-arm.deb
+Size: 4794
+MD5sum: cb524a20c32f6376049f93f348ccab54
+SHA1: 62b3d52366395a6bf8ad35b6124848905524c57b
+SHA256: 664435214e165ea467826ce0923a2d598ff528ad07299e7d76843135a0a0351e
+Section: Tweaks
+Description: Move the iPad dock anywhere on screen with a two-finger drag.
+Author: mikey820
+Name: DockMover
+Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.dockmover.html
+SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.dockmover.json
+
+Package: com.mikey820.gameunmute
+Version: 1.0.0
+Architecture: iphoneos-arm
+Maintainer: mikey820 <mikey820@users.noreply.github.com>
+Installed-Size: 168
+Depends: mobilesubstrate
+Filename: debs/com.mikey820.gameunmute_1.0.0_iphoneos-arm.deb
+Size: 3334
+MD5sum: b4926da1188a841fe6ca1023fdfd4396
+SHA1: 3abc5d3a8c526a8e11f80836c16fb5482e1785a7
+SHA256: ab52e7fb26be5985398b4e69bdcc771504fb0bce5abf89cf3c8f8debe86ca283
+Section: Tweaks
+Description: Stops the silent switch / Control Center silent mode from muting game audio
+Author: mikey820
+Name: GameUnmute
+Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.gameunmute.html
+SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.gameunmute.json
+
 Package: com.mikey820.groupchatnamefix
 Version: 7.2.0
 Architecture: iphoneos-arm

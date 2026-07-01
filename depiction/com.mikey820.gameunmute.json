@@ -1,0 +1,41 @@
+{
+  "minVersion": "0.1",
+  "class": "DepictionTabView",
+  "tintColor": "#5B5DE7",
+  "tabs": [
+    {
+      "tabname": "Details",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "# GameUnmute\n\nA jailbreak tweak that stops the silent switch (and Control Center silent mode)\nfrom muting game audio.\n\n## How it works\n\niOS only mutes apps whose `AVAudioSession` category is `Ambient` or\n`SoloAmbient` when the device is silenced. Games almost always use one of those,\nwhich is why their audio cuts out with the silent switch. GameUnmute hooks\n`-[AVAudioSession setCategory:...]` and remaps those two categories to\n`Playback`, the category that is designed to keep playing while silenced.\n\nThe hook runs in every UIKit app, but it only *changes* anything for apps that\nchose `Ambient`/`SoloAmbient` — exactly the apps the silent switch would mute.\nApps using `Playback`/`PlayAndRecord` are left alone. (An earlier version gated\non `LSApplicationCategoryType == games`, but most games never set that key, so\nthey slipped through — hence the broader approach.)\n\n## Notes / tuning\n\n- **Want to limit it to one app?** Change the filter in `GameUnmute.plist` from\n  `com.apple.UIKit` to that app's bundle ID.\n- `Playback` is exclusive by default, so it will pause background music. If you\n  want game audio to mix with your music, add `AVAudioSessionCategoryOptionMixWithOthers`\n  to the options in the hooks.\n\n## Building\n\nBuilds on GitHub Actions (macOS + Theos) — push to `main` and grab the `.deb`\nfrom the workflow artifacts. Rootless arm64; install with Sileo/Zebra and respring.",
+          "useSpacing": true
+        }
+      ]
+    },
+    {
+      "tabname": "Changelog",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "### v1.0.0\n\nStops the silent switch / Control Center silent mode from muting game audio.",
+          "useSpacing": true
+        }
+      ]
+    },
+    {
+      "tabname": "Support",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionTableButtonView",
+          "title": "GitHub Repository",
+          "action": "https://github.com/mikey820/GameUnmute",
+          "openExternal": true
+        }
+      ]
+    }
+  ]
+}
