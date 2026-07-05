@@ -18,6 +18,7 @@ env:
     com.mikey820.nostrongpassword mikey820/NoStrongPassword
     com.mikey820.dockmover mikey820/DockMover
     com.mikey820.gameunmute mikey820/GameUnmute
+    com.mikey820.tweetdownloader mikey820/TweetDownloader
 
 jobs:
   update:
