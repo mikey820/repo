@@ -1,0 +1,41 @@
+{
+  "minVersion": "0.1",
+  "class": "DepictionTabView",
+  "tintColor": "#5B5DE7",
+  "tabs": [
+    {
+      "tabname": "Details",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "# TweetDownloader\n\nAlways-on, one-tap, best-quality media downloader for the official Twitter app.\n\nAdds a download button to every tweet that has media, no menu digging, no \"save as\" dialog.\n\n## Features\n\n- Download button at the top-right of every tweet with media (timeline, tweet details, conversation, and quoted tweets)\n- Extra download buttons in the fullscreen photo slideshow viewer and fullscreen video (immersive) player, so you can save the exact photo/video you're looking at\n- Photos are saved at `:orig` (original) quality, not the downscaled timeline preview\n- Videos are saved at the highest available bitrate\n- Saves straight to the camera roll, no confirmation dialog\n- A small percentage HUD in the top-left shows download progress, including for multi-photo tweets\n\n## Compatibility\n\n- Confirmed working on Twitter app 11.93 (`com.atebits.Tweetie2`). Probably works fine on other versions though.\n- Rootless jailbreak (Dopamine), iOS 15+ (probably very easy to convert to rootfull im just very lazy)\n\n## Install\n\nAdd `https://mikey820.github.io/repo/` to Sileo/Zebra and install **TweetDownloader**.\n\n## Building from source\n\n```bash\nmake package FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless\n```\n\nRequires [Theos](https://theos.dev) with the iOS 16.5 SDK.\n\n## How it works\n\nTwitter's status views (`T1StandardStatusView`, `T1TweetDetailsFocalStatusView`, `T1ConversationFocalStatusView`, `T1SlideshowStatusView`) are hooked to inject a download button next to each tweet's media, and the fullscreen slideshow/immersive view controllers are hooked separately for their own download buttons. Tapping a button walks the tweet's view model to find its media entities, resolves photo URLs to `:orig` quality and videos to their highest-bitrate variant, and queues them through a small download manager that reports progress and saves each item to the camera roll via `PHPhotoLibrary`.",
+          "useSpacing": true
+        }
+      ]
+    },
+    {
+      "tabname": "Changelog",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "### v1.0.0\n\nAlways-on top-right download button for Twitter/X. Best-quality photo/video to camera roll. Twitter 11.93, Dopamine rootless (arm64/arm64e).",
+          "useSpacing": true
+        }
+      ]
+    },
+    {
+      "tabname": "Support",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionTableButtonView",
+          "title": "GitHub Repository",
+          "action": "https://github.com/mikey820/TweetDownloader",
+          "openExternal": true
+        }
+      ]
+    }
+  ]
+}

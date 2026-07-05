@@ -146,3 +146,21 @@ Name: PleaseDontStopTheMusic
 Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstopthemusic.html
 SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstopthemusic.json
 
+Package: com.mikey820.tweetdownloader
+Version: 1.0.0
+Architecture: iphoneos-arm64
+Maintainer: mikey820
+Installed-Size: 224
+Depends: ellekit | mobilesubstrate
+Filename: debs/TweetDownloader-arm64.deb
+Size: 24836
+MD5sum: 744b0104e4514f2e186705b646a641cf
+SHA1: fbb39d525e46362d4dbc798cc998a7b78a4efb6c
+SHA256: 67b3fb20357bc2013fea4f6980f05db4be233887deee97be0d32e1b4da61a528
+Section: Tweaks
+Description: Always-on, one-tap, best-quality media downloader for Twitter/X. Adds a download button at the top-right of every tweet with media; saves photos at :orig quality and videos at the highest-bitrate mp4 straight to the camera roll, no confirmation, with a download percentage at the top-left.
+Author: mikey820
+Name: TweetDownloader
+Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.tweetdownloader.html
+SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.tweetdownloader.json
+
