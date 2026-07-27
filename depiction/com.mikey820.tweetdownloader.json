@@ -20,7 +20,7 @@
       "views": [
         {
           "class": "DepictionMarkdownView",
-          "markdown": "### v1.2.0\n\nSubtle fullscreen photo/video download buttons for Twitter/X, with an in-session color indicator for media already saved. No buttons on the timeline. Twitter 11.93, Dopamine rootless (arm64/arm64e).\n\n---\n\n### v1.1.0\n\nFullscreen photo/video download buttons for Twitter/X, with no buttons on the timeline. Saves the currently viewed media at the best available quality. Twitter 11.93, Dopamine rootless (arm64/arm64e).\n\n---\n\n### v1.0.0\n\nAlways-on top-right download button for Twitter/X. Best-quality photo/video to camera roll. Twitter 11.93, Dopamine rootless (arm64/arm64e).",
+          "markdown": "### v1.2.1\n\nFixes the downloaded (green) indicator carrying over to other videos while vertically paging through the fullscreen video feed. The button now stays synchronized with the video currently centered onscreen.\n\nTested on Twitter/X 11.93 on iOS 15.4 with Dopamine rootless.\n\n---\n\n### v1.2.0\n\nSubtle fullscreen photo/video download buttons for Twitter/X, with an in-session color indicator for media already saved. No buttons on the timeline. Twitter 11.93, Dopamine rootless (arm64/arm64e).\n\n---\n\n### v1.1.0\n\nFullscreen photo/video download buttons for Twitter/X, with no buttons on the timeline. Saves the currently viewed media at the best available quality. Twitter 11.93, Dopamine rootless (arm64/arm64e).\n\n---\n\n### v1.0.0\n\nAlways-on top-right download button for Twitter/X. Best-quality photo/video to camera roll. Twitter 11.93, Dopamine rootless (arm64/arm64e).",
           "useSpacing": true
         }
       ]
