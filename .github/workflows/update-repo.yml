@@ -19,6 +19,7 @@ env:
     com.mikey820.dockmover mikey820/DockMover
     com.mikey820.gameunmute mikey820/GameUnmute
     com.mikey820.tweetdownloader mikey820/TweetDownloader
+    com.mikey820.twitterrepair mikey820/TwitterRepair
 
 jobs:
   update:
