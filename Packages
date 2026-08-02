@@ -164,3 +164,39 @@ Name: TweetDownloader
 Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.tweetdownloader.html
 SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.tweetdownloader.json
 
+Package: com.mikey820.twitterrepair
+Version: 1.1.0
+Architecture: iphoneos-arm64e
+Maintainer: mikey820
+Installed-Size: 92
+Depends: ellekit | mobilesubstrate
+Filename: debs/com.mikey820.twitterrepair_1.1.0_iphoneos-arm64e.deb
+Size: 15948
+MD5sum: d1c74df667dc498ddd4ff9505f01b02a
+SHA1: b5738589d016b973c431d0100d5b36c1608a3dd0
+SHA256: fdab8003aa0db8b64285aab7361476171e2e752eebc2fc0d51cbdd5aab58a2c3
+Section: Tweaks
+Description: Restores server-backed features in legacy Twitter for iOS.
+Author: mikey820
+Name: TwitterRepair
+Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.twitterrepair.html
+SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.twitterrepair.json
+
+Package: com.mikey820.twitterrepair
+Version: 1.1.0
+Architecture: iphoneos-arm64
+Maintainer: mikey820
+Installed-Size: 204
+Depends: ellekit | mobilesubstrate
+Filename: debs/com.mikey820.twitterrepair_1.1.0_iphoneos-arm64.deb
+Size: 21282
+MD5sum: e36c27e6183080fdd64d83737879f5d9
+SHA1: 61b9038343d59f2dc9a5e671d4185c70446787ac
+SHA256: 9ff96ea36e888be2796679a74fc6079f5b4165a517fc8a5dc38001a20096007c
+Section: Tweaks
+Description: Restores server-backed features in legacy Twitter for iOS.
+Author: mikey820
+Name: TwitterRepair
+Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.twitterrepair.html
+SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.twitterrepair.json
+
