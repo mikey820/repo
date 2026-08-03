@@ -168,13 +168,13 @@ Package: com.mikey820.twitterrepair
 Version: 1.1.0
 Architecture: iphoneos-arm
 Maintainer: mikey820
-Installed-Size: 92
+Installed-Size: 204
 Depends: ellekit | mobilesubstrate
 Filename: debs/com.mikey820.twitterrepair_1.1.0_iphoneos-arm.deb
-Size: 15918
-MD5sum: e95791be8ff71bc8e692e5ea87118a62
-SHA1: 41cc7a93e645fce4420847c1c9ab8179f3b5564c
-SHA256: 5450e1cbc7f5e37e1d0d24fd5919eae65ffbeb3056713246b1a8ce31e453803d
+Size: 21146
+MD5sum: 8773ef7e6be92b58e07165c5c2359066
+SHA1: 1bc511249e06b1397bd0602a3d85bcf39d185ac7
+SHA256: e3ad72cabc7c78f2d9b42b6d162edca8c0c799a742e6842c6f03475d04367f3a
 Section: Tweaks
 Description: Restores server-backed features in legacy Twitter for iOS.
 Author: mikey820
