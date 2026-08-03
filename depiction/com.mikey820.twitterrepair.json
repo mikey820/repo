@@ -20,7 +20,7 @@
       "views": [
         {
           "class": "DepictionMarkdownView",
-          "markdown": "### v1.1.0\n\nRestores search, replies, quote-tweet lists, and photo-only posts in\r\nTwitter 9.44 (com.atebits.Tweetie2) after X retired the endpoints the\r\nold app talks to.",
+          "markdown": "### v1.1.1\n\nFixes the rootful package: it was previously arm64e-only, which never loaded\non pre-A12 rootful devices (iPhone X/8 and earlier). Rootful is now a\nuniversal arm64 + arm64e build, same as rootless.\n\nNo functional changes to search, replies, or photos in this release — same\nbridges as 1.1.0.\n\n- `iphoneos-arm64.deb` — rootless (Dopamine, palera1n rootless, roothide, ...)\n- `iphoneos-arm.deb` — rootful (checkra1n, unc0ver, palera1n rootful, ...)\n\n---\n\n### v1.1.0\n\nRestores search, replies, quote-tweet lists, and photo-only posts in\r\nTwitter 9.44 (com.atebits.Tweetie2) after X retired the endpoints the\r\nold app talks to.",
           "useSpacing": true
         }
       ]
