@@ -146,39 +146,3 @@ Name: PleaseDontStopTheMusic
 Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstopthemusic.html
 SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.pleasedontstopthemusic.json
 
-Package: com.mikey820.twitterrepair
-Version: 1.1.1
-Architecture: iphoneos-arm64
-Maintainer: mikey820
-Installed-Size: 204
-Depends: ellekit | mobilesubstrate
-Filename: debs/com.mikey820.twitterrepair_1.1.1_iphoneos-arm64.deb
-Size: 21246
-MD5sum: fa79e5e74ac4bb6a4983a920b1263769
-SHA1: d0d17910c83bb7cb7bd76d4e8b5b60e448fb08e5
-SHA256: b26ed0f0a0972fd4e70169ac2d18947c23b9a52e1ffac281fb50a68a9bfd3f61
-Section: Tweaks
-Description: Restores server-backed features in legacy Twitter for iOS.
-Author: mikey820
-Name: TwitterRepair
-Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.twitterrepair.html
-SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.twitterrepair.json
-
-Package: com.mikey820.twitterrepair
-Version: 1.1.1
-Architecture: iphoneos-arm
-Maintainer: mikey820
-Installed-Size: 204
-Depends: ellekit | mobilesubstrate
-Filename: debs/com.mikey820.twitterrepair_1.1.1_iphoneos-arm.deb
-Size: 21204
-MD5sum: 7bba16f5a6d00048422b754f922aa126
-SHA1: 4a50d4691f3a84582caf4813beadb83227b5045f
-SHA256: fb3afa083c23f3e81469c8dc29ef1aba8b2ec2ce84d4070263ff28b464b9aa05
-Section: Tweaks
-Description: Restores server-backed features in legacy Twitter for iOS.
-Author: mikey820
-Name: TwitterRepair
-Depiction: https://mikey820.github.io/repo/depiction/com.mikey820.twitterrepair.html
-SileoDepiction: https://mikey820.github.io/repo/depiction/com.mikey820.twitterrepair.json
-
